@@ -50,6 +50,12 @@ public class UserController {
         return ResponseEntity.ok("Usuário removido com sucesso!");
     }
 
+    @PutMapping("{id}")
+    public ResponseEntity<UserEntity> update(@PathVariable Long id, @RequestBody UserEntity user){
+        UserEntity userUpdated = this.userService.create(user);
+        return ResponseEntity.ok(userUpdated);
+    }
+
     @ExceptionHandler(MethodArgumentNotValidException.class)
     public ResponseEntity<Map<String, String>> handleValidationExceptions(MethodArgumentNotValidException ex) {
         Map<String, String> errors = new HashMap<>();

@@ -4,3 +4,4 @@
 2. O sistema deve listar os usuários cadastrados
 3. O sistema deve buscar um determinado usuário pelo seu id
 4. O sistema deve deletar um determinado através de seu id
+5. O sistema deve atualizar as informações do usuário cadastrado
