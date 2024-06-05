@@ -44,6 +44,12 @@ public class UserController {
         return ResponseEntity.of(this.userService.getUser(id));
     }
 
+    @DeleteMapping("{id}")
+    public ResponseEntity<String> deleteUser(@PathVariable Long id){
+        this.userService.deleteUser(id);
+        return ResponseEntity.ok("Usuário removido com sucesso!");
+    }
+
     @ExceptionHandler(MethodArgumentNotValidException.class)
     public ResponseEntity<Map<String, String>> handleValidationExceptions(MethodArgumentNotValidException ex) {
         Map<String, String> errors = new HashMap<>();

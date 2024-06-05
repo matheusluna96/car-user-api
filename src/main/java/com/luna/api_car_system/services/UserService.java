@@ -40,4 +40,8 @@ public class UserService {
     public Optional<UserEntity> getUser(Long id){
         return this.userRepository.findById(id);
     }
+
+    public void deleteUser(Long id){
+        this.userRepository.deleteById(id);
+    }
 }
