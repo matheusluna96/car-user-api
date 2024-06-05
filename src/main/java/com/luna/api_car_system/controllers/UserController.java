@@ -9,6 +9,7 @@ import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.*;
 
@@ -23,8 +24,12 @@ public class UserController {
     @Autowired
     private UserService userService;
 
+    @Autowired
+    private PasswordEncoder passwordEncoder;
+
     @PostMapping
     public ResponseEntity<UserEntity> create(@Valid @RequestBody UserEntity user){
+        user.setPassword(passwordEncoder.encode(user.getPassword()));
         try {
             UserEntity createdUser = userService.create(user);
             return new ResponseEntity<>(createdUser, HttpStatus.CREATED);

@@ -5,3 +5,4 @@
 3. O sistema deve buscar um determinado usuário pelo seu id
 4. O sistema deve deletar um determinado através de seu id
 5. O sistema deve atualizar as informações do usuário cadastrado
+6. O sistema deve fornecer uma forma de login para os usuários que retorne um token
