@@ -32,4 +32,8 @@ public class UserService {
         }
 
     }
+
+    public List<UserEntity> list(){
+        return this.userRepository.findAll();
+    }
 }

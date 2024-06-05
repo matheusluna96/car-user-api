@@ -34,6 +34,11 @@ public class UserController {
 
     }
 
+    @GetMapping
+    public ResponseEntity<List<UserEntity>> list(){
+        return ResponseEntity.ok(this.userService.list());
+    }
+
     @ExceptionHandler(MethodArgumentNotValidException.class)
     public ResponseEntity<Map<String, String>> handleValidationExceptions(MethodArgumentNotValidException ex) {
         Map<String, String> errors = new HashMap<>();
