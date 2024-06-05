@@ -39,6 +39,11 @@ public class UserController {
         return ResponseEntity.ok(this.userService.list());
     }
 
+    @GetMapping("{id}")
+    public ResponseEntity<UserEntity> getUser(@PathVariable Long id){
+        return ResponseEntity.of(this.userService.getUser(id));
+    }
+
     @ExceptionHandler(MethodArgumentNotValidException.class)
     public ResponseEntity<Map<String, String>> handleValidationExceptions(MethodArgumentNotValidException ex) {
         Map<String, String> errors = new HashMap<>();

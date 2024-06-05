@@ -2,3 +2,4 @@
 ## ESTÓRIAS DE USUÁRIO
 1. O sistema deve cadastrar usuários
 2. O sistema deve listar os usuários cadastrados
+3. O sistema deve buscar um determinado usuário pelo seu id

@@ -3,13 +3,13 @@ package com.luna.api_car_system.services;
 import com.luna.api_car_system.entities.UserEntity;
 import com.luna.api_car_system.exceptions.EmailAlreadyExistsException;
 import com.luna.api_car_system.exceptions.LoginAlreadyExistsException;
-import com.luna.api_car_system.exceptions.UserAlreadyExistsException;
 import com.luna.api_car_system.repositories.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class UserService {
@@ -35,5 +35,9 @@ public class UserService {
 
     public List<UserEntity> list(){
         return this.userRepository.findAll();
+    }
+
+    public Optional<UserEntity> getUser(Long id){
+        return this.userRepository.findById(id);
     }
 }
